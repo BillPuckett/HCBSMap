@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AASK RBHA Time Sheet</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+    <script type="text/javascript" src="js/gmaps/gmaps.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/examples.css">
+
+
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body id="home">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">AASK HCBS Provider Web</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right" role="form">
+                <div class="form-group">
+                    <input type="text" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+            </form>
+        </div><!--/.navbar-collapse -->
+    </div>
+</div>
+
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+<h3>COMMUNITY SERVICE AGENGY</h3>
+<form method="post" id="RBHATimeSheet">
+    <h3><div class="input">
+    <label for="service">RSP</label>
+    <label for="docform">---DAILY CLINICAL RECORD DOCUMENTATION FORM---DATE: </label>
+    <input type="text" id="TSDate" name="TSDate" size="10" />
+    <label for="docform">DOC#: </label>
+    <input type="text" id="DocNum" name="DocNum" />
+    </div></h3>
+
+    <div class="input">
+    <strong><label for="csaname">CSA NAME: </label></strong>
+    <label for="aask">AASK-Aid to Adoption of Special Kids  </label>&nbsp;
+    <strong><label for="aaskasproviderid">PROVIDER ID#: </label></strong>
+    <label for="aaskprovideridnum">1942372016 </label>&nbsp;
+    <strong><label for="sitelocation" >SITE LOCATION: </label></strong>
+    <input type="text" id="sitelocation" name="sitelocation" size="35"/>
+    </div>
+
+    <div class="input">
+    <strong><label for="csaname">PLACE OF SERVICE (select one): </label></strong>&nbsp;
+    <input type="radio" name="group1" value="OutsideHome"/> 99 - Outside of Home (must specify) </>&nbsp;
+    <input type="text" id="OutsideHome" name="OutsideHome" size="65"/>
+    <br />
+    <strong><label for="aaskasproviderid">*note: only one P.O.S. per sheet </label></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="group1" value="InHome" checked="checked"/> 12 - At Client's Home </>
+    </div>
+    <br />
+  
+    <div class="input">
+    <strong><label for="clientname">CLIENT NAME: </label></strong>
+    <input type="text" id="clientname" name="clientname" />&nbsp;&nbsp;
+    <strong><label for="ahcccsid">AHCCCS ID#: </label></strong>
+    <input type="text" id="ahcccsid" name="ahcccsid" size="15" />&nbsp;&nbsp;&
+    <strong><label for="cisid">CIS ID#: </label></strong>
+    <input type="text" id="cisid" name="cisid" size="10" />&nbsp;&nbsp;
+    <strong><label for="diagnosis">DIAGNOSIS CODE: </label></strong>
+    <input type="text" id="diagnosis" name="diagnosis" size="10" />
+    </div>
+    <br />
+
+    <div class="input">
+    <strong><label for="providername">PROVIDER NAME: </label></strong>&nbsp;
+    <input type="text" id="providername" name="providername" size="70"/>&nbsp;&nbsp;&nbsp;
+    <strong><label for="providerid">PROVIDER ID: </label></strong>&nbsp;
+    <input type="text" id="providerid" name="providerid" size="30"/>
+    </div>
+    <br />
+
+    <div class="input">
+    <strong><label for="casemanager">CASE MANAGER: </label></strong>&nbsp;
+    <input type="text" id="casemanager" name="casemanager" size="120"/>
+    </div>
+    <br />
+
+    <div class="input">
+    <strong><label for="T1019">PLACE OF SERVICE (select one): </label></strong>&nbsp;
+    <input type="radio" name="group2" value="T1019"/> T1019 Personal CareServices (up to 11 3/4 hours) </>
+    <br />&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="group2" value="S5150"/> S5150 Unskilled Respite (up to 12 hours) </>&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="group2" value="S5151"/> S5151 Unskilled Respite (more than 12 hours) </>
+    </div>
+    <br />
+
+    <div class="input">
+    <strong><label for="timein1">Duration of service(s) provided to client:   Time in </label></strong>
+    <input type="text" id="timein1" name="timein1" size="4" />
+    <input type="radio" name="group3" value="timein1am"/> am </>
+    <input type="radio" name="group3" value="timein1pm"/> pm </>&nbsp;
+    <strong><label for="timeout1">|   Time Out </label></strong>
+    <input type="text" id="timeout1" name="timeout1" size="4" />
+    <input type="radio" name="group4" value="timeout1am"/> am </>
+    <input type="radio" name="group4" value="timeout1pm"/> pm </>&nbsp;
+    <strong><label for="timetotal1">|   Total Time </label></strong>
+    <input type="text" id="timetotal1" name="timetotal1" size="4" />
+    <br />
+    <strong><label for="timein2">Duration of service(s) provided to client:   Time in </label></strong>
+    <input type="text" id="timein2" name="timein2" size="4" />
+    <input type="radio" name="group5" value="timein2am"/> am </>
+    <input type="radio" name="group5" value="timein2pm"/> pm </>&nbsp;
+    <strong><label for="timeout2">|   Time Out </label></strong>
+    <input type="text" id="timeout2" name="timeout2" size="4" />
+    <input type="radio" name="group6" value="timeout2am"/> am </>
+    <input type="radio" name="group6" value="timeout2pm"/> pm </>&nbsp;
+    <strong><label for="timetotal2">|   Total Time </label></strong>
+    <input type="text" id="timetotal2" name="timetotal2" size="4" />
+    <br />
+    <strong><label for="timein3">Duration of service(s) provided to client:   Time in </label></strong>
+    <input type="text" id="timein3" name="timein3" size="4" />
+    <input type="radio" name="group7" value="timein3am"/> am </>
+    <input type="radio" name="group7" value="timein3pm"/> pm </>&nbsp;
+    <strong><label for="timeout3">|   Time Out </label></strong>
+    <input type="text" id="timeout3" name="timeout3" size="4" />
+    <input type="radio" name="group8" value="timeout3am"/> am </>
+    <input type="radio" name="group8" value="timeout3pm"/> pm </>&nbsp;
+    <strong><label for="timetotal3">|   Total Time </label></strong>
+    <input type="text" id="timetotal3" name="timetotal3" size="4" />
+    </div>
+    <br />
+
+    <div>
+    <strong><label for="servicesummary">Summary of services provided to client: </label></strong>&nbsp;
+    <br />
+    <textarea rows="10" cols="120" id="servicesummary" >  </textarea>
+
+    </div>
+    <br />
+
+    <label for="providerattest">This time sheet accurately documents the hours I have provided service to the above named HCBS client. 
+    My digital signature certifies that all information on this time sheet is an accurate reflection of the work I am requesting pay for. 
+    I understand that I will be held accountable for any errors and/or omissions and these could lead to disciplinary action up to and including termination.</label>
+
+    <div class="input">
+    <input type="text" id="providersign" name="providersign" size="50"/>&nbsp;
+    <input type="text" id="providersigndate" name="providersigndate" size="20"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="csarepcred" name="csarepcred" size="60"/>
+    <br />
+    <strong><label for="providersign">Provider signature</label></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong><label for="providersigndate">date</label></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong><label for="csarepcred">Printed name and title credentials of CSA Representative</label></strong>&nbsp;    
+    </div>
+    <br />
+
+    <label for="parentattest">My digital signature on this time sheet confirms the hours of service received from the above named provider. 
+    I certify that all information on this time sheet is an accurate reflection of the services delivered to my child.</label>
+
+    <div class="input">
+    <input type="text" id="parentsign" name="parentsign" size="50"/>&nbsp;
+    <input type="text" id="parentsigndate" name="parentsigndate" size="20"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" id="csarepsign" name="csarepsign" size="45"/>
+    <input type="text" id="csarepsigndate" name="csarepsigndate" size="10"/>
+    <br />
+    <strong><label for="parentsign">Parent or Legal guardian signature</label></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong><label for="parentsigndate">date</label></strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <strong><label for="csarepsign">CSA Representative signature and date </label></strong>&nbsp;    
+    </div>
+    <br />
+
+    <input type="submit" class="btn" value="Submit"/>
+    </div>
+</form>
+    </div>
+
+
+</body>
+<script type="text/javascript">
+    Parse.initialize("fByWoLraNbfr1baGOtVUyQ90VLYWWrUJ7aSI3bFb", "mob96RUajMRO0gat11f8e0kybd0niZSqFP93H5mO");
+    var map;
+    var ClientGeolocation = Parse.Object.extend("ClientGeolocation");
+    var clientGeolocation = new ClientGeolocation;
+
+
+
+
+    $(document).ready(function(){
+
+        $('#geocode_clients').submit(function(e) {
+            e.preventDefault();
+            GMaps.geocode({
+                address: $('#address').val().trim(),
+                callback: function (results, status) {
+                    if (status == 'OK') {
+                        var latlng = results[0].geometry.location;
+                        var point = new Parse.GeoPoint(latlng.lat(), latlng.lng());
+                        var clientGender = $('#gender').val();
+                        var clientAge = parseInt($('#age').val());
+                        var clientServices = $('#service').val();
+                        var clientTimes = $('#times').val();
+
+
+                        clientGeolocation.save({
+                            lat: latlng.lat(),
+                            lng: latlng.lng(),
+                            gender: clientGender,
+                            age: clientAge,
+                            service: clientServices,
+                            times: clientTimes,
+                            location: point
+
+                        }, {
+                            success: function(clientGeolocation){
+                                alert("yay! it worked");
+                            },
+                            error: function(clientGeolocation, error) {
+                                alert("boo! it borked "+ error);
+                            }
+
+
+                        });
+                    }
+                }
+            });
+        });
+    });
+
+</script>
+</html>

@@ -2,6 +2,22 @@ body{
   font-family: 'Droid Sans', 'Helvetica', Arial, sans-serif;
   margin:5px;
 }
+
+h2{
+    text-align: center;
+    width: 639px;
+}
+
+
+#servicesummary{
+    height:100px;
+    width: 704px;
+}
+
+#timein1, #timein2, #timein3, #timeout1, #timeout2, #timeout3, #timetotal1, #timetotal2, #timetotal3{
+  text-align: center;
+}
+ 
 #map{
   display: block;
   width: 95%;

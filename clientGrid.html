@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AASK HCBS Client Insert</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/examples.css"/>
+    <script type="text/javascript" src="js/handlebars/handlebars-v1.3.0.js"></script>
+    <script type="text/javascript" src="clientGrid.js"></script>
+
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+
+<body id="home">
+
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">AASK HCBS Provider Web</a>
+        </div>
+        <div class="navbar-collapse collapse">
+<!--            <form class="navbar-form navbar-right" role="form">
+                <div class="form-group">
+                    <input type="text" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Sign in</button>
+            </form>-->
+        </div><!--/.navbar-collapse -->
+    </div>
+</div>
+
+
+
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h2>HCBS Client Grid </h2>
+    </div>
+
+
+<h4>Current Open Clients </h4>
+
+
+<ul class="clientListing"></ul>
+<script id="listClients-template" type="x-handlebars-template">
+    {{#each this}}
+    <span class="clientList"> <a href="clientEdit.html?id={{objectId}}" >Edit</a>  - ClientID: {{clientID}} - Age: {{age}} - Gender: {{gender}} - Service: {{service}} - Times: {{times}} - <button id="del" value="{{objectId}}">Delete</button></span><br/>
+    {{/each}}                                                                                                                                                                               
+
+</script>
+
+<form>
+    <input type="button" value="Add New Client" onclick="parent.location='clientCRUD.html'"/>
+</form>
+
+</div>
+</body>
+
+
+</html>
